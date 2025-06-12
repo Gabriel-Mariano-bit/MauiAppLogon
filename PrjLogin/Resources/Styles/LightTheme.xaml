@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PrjLogin.Resources.Styles.LightTheme">
+    <Color x:Key="BackgroundGradientColor1">#EFCCDD</Color>
+    <Color x:Key="BackgroundGradientColor2">#9EA7DD</Color>
+    <Color x:Key="FontColorTitle">#141414</Color>
+    <Color x:Key="FontColorSubTitle">#404040</Color>
+    <Color x:Key="IconColor">#141414</Color>
+    <Color x:Key="BorderColor">#141414</Color>
+    <Color x:Key="BackgroundButtonGradientColor1">#0093cd</Color>
+    <Color x:Key="BackgroundButtonGradientColor2">#5EEBFF</Color>
+</ResourceDictionary>
