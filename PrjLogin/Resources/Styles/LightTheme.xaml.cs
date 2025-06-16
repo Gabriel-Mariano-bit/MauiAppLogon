@@ -1,3 +1,4 @@
+
 namespace PrjLogin.Resources.Styles;
 
 public partial class LightTheme : ResourceDictionary
@@ -6,7 +7,12 @@ public partial class LightTheme : ResourceDictionary
     {
         public Light()
         {
-            InitializeComponent(); // Método de instância
+            InitializeComponent();
+        }
+
+        private void InitializeComponent()
+        {
+            throw new NotImplementedException();
         }
     }
 }

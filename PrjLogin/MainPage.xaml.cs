@@ -7,8 +7,8 @@
         public MainPage()
         {
             InitializeComponent();
-            LightThemeButton.IsVisible = true;
-            DarkThemeButton.IsVisible = true;
+
+
         }
 
         private void OnCounterClicked(object sender, EventArgs e)
@@ -22,24 +22,17 @@
 
             SemanticScreenReader.Announce(CounterBtn.Text);
         }
-        private void OnLightThemeClicked(object sender, EventArgs e)
+
+        private void ToggleTheme_ToolbarItem_Clicked(object sender, EventArgs e)
         {
-            // Aplica o tema claro
-            Application.Current.Resources.MergedDictionaries.Clear();
-            Application.Current.Resources.MergedDictionaries.Add(new Light());
-            // Atualiza visibilidade dos botões
-            LightThemeButton.IsVisible = false;
-            DarkThemeButton.IsVisible = true;
-        }
-        private void OnDarkThemeClicked(object sender, EventArgs e)
-        {
-            // Aplica o tema escuro
-            Application.Current.Resources.MergedDictionaries.Clear();
-            Application.Current.Resources.MergedDictionaries.Add(new Dark());
-            // Atualiza visibilidade dos botões
-            DarkThemeButton.IsVisible = false;
-            LightThemeButton.IsVisible = true;
+            App.Current.UserAppTheme = App.Current.UserAppTheme switch
+            {
+                AppTheme.Dark => AppTheme.Light,
+                AppTheme.Light => AppTheme.Dark,
+                AppTheme.Unspecified => AppTheme.Dark
+            };
         }
     }
-
 }
+
+

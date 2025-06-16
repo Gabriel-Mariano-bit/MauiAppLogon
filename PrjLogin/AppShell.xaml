@@ -4,12 +4,33 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:PrjLogin"
+    Title="PrjLogin"
+
+    Shell.BackgroundColor="{AppThemeBinding Light=White,
+                                            Dark=Black}"
     Shell.FlyoutBehavior="Disabled"
-    Title="PrjLogin">
+    Shell.ForegroundColor="{AppThemeBinding Light={StaticResource Tertiary},
+                                            Dark=White}"
+    Shell.NavBarHasShadow="True"
+    Shell.TabBarBackgroundColor="{AppThemeBinding Light=#EEEEEE,
+                                                  Dark=Black}"
+    Shell.TabBarTitleColor="{AppThemeBinding Light=Black,
+                                             Dark=White}"
+    Shell.TabBarUnselectedColor="{AppThemeBinding Light=Black,
+                                                  Dark=#CCC}"
+    Shell.TitleColor="{AppThemeBinding Light={StaticResource Tertiary},
+                                       Dark=White}">
+    <TabBar>
+        <ShellContent
+            Title="Home"
+            ContentTemplate="{DataTemplate local:MainPage}"
+            Icon="dotnet_bot.png"
+            Route="MainPage" />
+        <ShellContent
+            Title="Profile"
+            ContentTemplate="{DataTemplate local:LoginPage}"
+            Icon="dotnet_bot.png"
+            Route="ProfilePage" />
+    </TabBar>
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:LoginPage}"
-        Route="MainPage" />
-
-</Shell>
+</Shell>    
