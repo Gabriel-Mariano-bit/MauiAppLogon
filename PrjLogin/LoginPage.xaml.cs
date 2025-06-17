@@ -42,7 +42,7 @@ public partial class LoginPage : ContentPage
             if (valido)
             {
                 Preferences.Default.Set("usuario", usuarioDigitado.Nome);
-                await Shell.Current.GoToAsync("Main");
+                await Navigation.PushAsync(new MainPage());
             }
             else
             {
@@ -61,5 +61,16 @@ public partial class LoginPage : ContentPage
     {
         await txtSenha.HideSoftInputAsync(CancellationToken.None);
         await ValidarUsuario();
+    }
+
+    private void ToggleTheme_ToolbarItem_Clicked(object sender, EventArgs e)
+    {
+        App.Current.UserAppTheme = App.Current.UserAppTheme switch
+        {
+            AppTheme.Dark => AppTheme.Light,
+            AppTheme.Light => AppTheme.Dark,
+            AppTheme.Unspecified => AppTheme.Dark
+        };
+
     }
 }

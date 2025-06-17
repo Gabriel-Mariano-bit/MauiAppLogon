@@ -20,14 +20,14 @@
                                                   Dark=#CCC}"
     Shell.TitleColor="{AppThemeBinding Light={StaticResource Tertiary},
                                        Dark=White}">
-   
-        <ShellContent
-            Title="Login"
-            ContentTemplate="{DataTemplate local:LoginPage}"
-            Icon="tre.png"
-            Route="ProfilePage" />
 
-   
+    <ShellContent
+        Title="Login"
+        ContentTemplate="{DataTemplate local:LoginPage}"
+        Icon="tre.png"
+        Route="ProfilePage" />
+
+
 
 
 </Shell>    

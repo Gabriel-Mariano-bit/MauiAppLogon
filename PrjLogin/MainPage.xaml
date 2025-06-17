@@ -42,6 +42,11 @@
             Clicked="GoToListaPage"
             BackgroundColor="ForestGreen"
             TextColor="White"/>
+
+                <Button Text="LogOut"
+            Clicked="GoToLoginPage"
+            BackgroundColor="IndianRed"
+            TextColor="White"/>     
             </StackLayout>
         </VerticalStackLayout>
         

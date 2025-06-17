@@ -11,18 +11,45 @@
     Spacing="10"
     Padding="10">
 
+        <AbsoluteLayout>
+            <ImageButton Source="{AppThemeBinding Light=moon.png, Dark=sun.png}"
+                 Clicked="ToggleTheme_ToolbarItem_Clicked"
+                 HeightRequest="50"
+                 WidthRequest="50"
+                 BackgroundColor="Transparent"
+                 AbsoluteLayout.LayoutBounds="1,0,50,100"
+                 AbsoluteLayout.LayoutFlags="PositionProportional"/>
+
+        </AbsoluteLayout>
+
         <Label Text="Sistema de Login"
-           HorizontalOptions="Center" />
+               HorizontalOptions="Center"
+               BackgroundColor="{AppThemeBinding Light=#E0E0E0, Dark=#333333}" 
+                TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
 
-        <Label Text="Usuário" />
-        <Entry x:Name="txtUsuario" ReturnType="Next" />
+            <Label Text="Usuário"
+               BackgroundColor="{AppThemeBinding Light=#E0E0E0, Dark=#444444}" 
+                TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
+                <Entry x:Name="txtUsuario"
+               ReturnType="Next"
+               BackgroundColor="{AppThemeBinding Light=#F5F5F5, Dark=#555555}" 
+                    TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
 
-        <Label Text="Senha" />
-        <Entry x:Name="txtSenha" IsPassword="True" ReturnType="Go" Completed="txtSenha_Completed" />
-        <Button
-        x:Name="btnLogin"
-        Text="Login"
-        Clicked="btnLogin_Clicked"
-        />
+                    <Label Text="Senha"
+               BackgroundColor="{AppThemeBinding Light=#E0E0E0, Dark=#444444}" 
+                        TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
+                        <Entry x:Name="txtSenha"
+               IsPassword="True"
+               ReturnType="Go"
+               Completed="txtSenha_Completed"
+               BackgroundColor="{AppThemeBinding Light=#F5F5F5, Dark=#555555}" 
+                            TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
+
+                            <Button x:Name="btnLogin"
+                Text="Login"
+                Clicked="btnLogin_Clicked"
+                BackgroundColor="{AppThemeBinding Light=#4CAF50, Dark=#888888}"
+                TextColor="White"/>
+
     </VerticalStackLayout>
 </ContentPage>

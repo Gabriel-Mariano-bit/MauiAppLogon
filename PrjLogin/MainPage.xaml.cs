@@ -1,4 +1,6 @@
-﻿namespace PrjLogin
+﻿using System.Collections.ObjectModel;
+
+namespace PrjLogin
 {
     public partial class MainPage : ContentPage
     {
@@ -27,13 +29,22 @@
         }
         private async void GoToCadastroPage(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new CadastroPage());
+            await Navigation.PushAsync(new CadastroPage(Products));
         }
 
         private async void GoToListaPage(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new ListaPage());
+            await Navigation.PushAsync(new ListaPage(Products));  // Passando uma lista vazia por enquanto
         }
+
+        private async void GoToLoginPage(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new LoginPage());
+        }
+
+        public ObservableCollection<Product> Products { get; } = new();
+
+       
     }
 }
 

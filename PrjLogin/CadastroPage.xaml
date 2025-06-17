@@ -3,11 +3,28 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PrjLogin.CadastroPage"
              Title="CadastroPage">
-    <VerticalStackLayout Padding="20" Spacing="15">
-        <Entry x:Name="nomeEntry" Placeholder="Nome do Produto"/>
-        <Entry x:Name="modeloEntry" Placeholder="Modelo"/>
-        <Entry x:Name="precoEntry" Placeholder="Preço" Keyboard="Numeric"/>
 
-        <Button Text="Adicionar Produto" Clicked="AdicionarProduto"/>
+
+    <VerticalStackLayout Padding="20" Spacing="15">
+        
+        <Label Text="Cadastro de Produto" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"
+               Margin="0,0,0,0"/>
+        
+        <Entry Placeholder="Nome do Produto" Text="{Binding Name}" BackgroundColor="White" TextColor="Black"
+               Margin="0,5,0,10"/>
+
+        <Entry Placeholder="Modelo do Produto" Text="{Binding Model}" BackgroundColor="White" TextColor="Black"
+               Margin="0,5,0,10"/>
+        <Entry Placeholder="Preço" Keyboard="Numeric" Text="{Binding Price, Mode=TwoWay}" BackgroundColor="White" TextColor="Black"
+               Margin="0,5,0,10"/>
+        <Editor Placeholder="Descrição do Produto" Text="{Binding Description}" BackgroundColor="White" TextColor="Black"
+               Margin="0,5,0,20"/>
+
+        <StackLayout Spacing="15">
+            <Button Text="Cadastrar" Clicked="AddProduct" BackgroundColor="#2196F3" TextColor="White"/>
+            <Button Text="Limpar Lista" Clicked="ClearProductList" BackgroundColor="#E53935" TextColor="White"/>
+            <Button Text="Ir para Lista" Clicked="GoToListaPage" BackgroundColor="#4CAF50" TextColor="White"/>
+            <Button Text="Voltar ao Menu Principal" Clicked="GoToMainPage" BackgroundColor="#FF9800" TextColor="White"/>
+        </StackLayout>
     </VerticalStackLayout>
 </ContentPage>

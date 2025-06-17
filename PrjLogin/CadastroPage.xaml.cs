@@ -1,39 +1,101 @@
-public partial class CadastroPage : ContentPage
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+
+namespace PrjLogin
 {
-    public static List<Produto> Produtos = new List<Produto>();
-
-    public CadastroPage()
+    public partial class CadastroPage : ContentPage, INotifyPropertyChanged
     {
-        InitializeComponent();
-    }
+        private ObservableCollection<Product> _products;
+        private string _name = string.Empty;
+        private string _model = string.Empty;
+        private decimal? _price; 
+        private string _description = string.Empty;
 
-    private void AdicionarProduto(object sender, EventArgs e)
-    {
-        if (string.IsNullOrWhiteSpace(nomeEntry.Text) || string.IsNullOrWhiteSpace(modeloEntry.Text) || string.IsNullOrWhiteSpace(precoEntry.Text))
+        public CadastroPage(ObservableCollection<Product> products)
         {
-            DisplayAlert("Erro", "Todos os campos devem ser preenchidos!", "OK");
-            return;
+            InitializeComponent();
+            _products = products;
+            BindingContext = this;
         }
 
-        if (!decimal.TryParse(precoEntry.Text, out decimal preco))
+        public string Name
         {
-            DisplayAlert("Erro", "Preço inválido!", "OK");
-            return;
+            get => _name;
+            set { _name = value; OnPropertyChanged(); }
         }
 
-        var produto = new Produto
+        public string Model
         {
-            Nome = nomeEntry.Text,
-            Modelo = modeloEntry.Text,
-            Preco = preco
-        };
+            get => _model;
+            set { _model = value; OnPropertyChanged(); }
+        }
 
-        Produtos.Add(produto);
-        DisplayAlert("Sucesso", "Produto cadastrado!", "OK");
+        public decimal? Price
+        {
+            get => _price;
+            set { _price = value; OnPropertyChanged(); }
+        }
 
-        // Limpar os campos
-        nomeEntry.Text = string.Empty;
-        modeloEntry.Text = string.Empty;
-        precoEntry.Text = string.Empty;
+        public string Description
+        {
+            get => _description;
+            set { _description = value; OnPropertyChanged(); }
+        }
+
+      private void AddProduct(object sender, EventArgs e)
+{
+    
+
+    // Verifica se os demais campos estão preenchidos
+    if (string.IsNullOrWhiteSpace(Name) || 
+        string.IsNullOrWhiteSpace(Model) || 
+        string.IsNullOrWhiteSpace(Description))
+    {
+        DisplayAlert("Erro", "Todos os campos devem ser preenchidos.", "OK");
+        return; // Sai sem cadastrar
     }
+
+            // Verifica se o preço contém apenas números antes de validar campos vazios
+            if (string.IsNullOrWhiteSpace(Price?.ToString()) || !decimal.TryParse(Price?.ToString(), out decimal validPrice))
+            {
+                DisplayAlert("Erro", "O preço deve conter apenas números", "OK");
+                return; // Sai sem cadastrar
+            }
+
+            // Adiciona o produto à lista
+            _products.Add(new Product
+    {
+        Name = Name,
+        Model = Model,
+        Price = validPrice, // Usa o valor validado
+        Description = Description
+    });
+
+    // Limpa os campos após o cadastro
+    Name = string.Empty;
+    Model = string.Empty;
+    Price = null;
+    Description = string.Empty;
 }
+
+        private void ClearProductList(object sender, EventArgs e)
+        {
+            _products.Clear(); 
+        }
+
+        private async void GoToListaPage(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ListaPage(_products));
+        }
+        private async void GoToMainPage(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new MainPage());
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void OnPropertyChanged([CallerMemberName] string propertyName = "")
+            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
+}  
+
