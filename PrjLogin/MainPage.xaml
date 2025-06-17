@@ -3,29 +3,26 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PrjLogin.MainPage">
 
-    <ContentPage.ToolbarItems>
-        
-        <ToolbarItem IconImageSource="{AppThemeBinding Light=moon.png, Dark=sun.png}"
-        Clicked="ToggleTheme_ToolbarItem_Clicked"/>
-    </ContentPage.ToolbarItems>
-    
+
+
     <ScrollView>
 
+
+
         
+            <VerticalStackLayout Padding="45,0" Spacing="30">
 
-
-        <VerticalStackLayout Padding="45,0" Spacing="30">
-
-            <ImageButton Source="{AppThemeBinding Light=moon.png, Dark=sun.png}"
+                <AbsoluteLayout>
+                    <ImageButton Source="{AppThemeBinding Light=moon.png, Dark=sun.png}"
                  Clicked="ToggleTheme_ToolbarItem_Clicked"
                  HeightRequest="50"
                  WidthRequest="50"
                  BackgroundColor="Transparent"
-                 AbsoluteLayout.LayoutBounds="1,1,50,50"
+                 AbsoluteLayout.LayoutBounds="1,1,0,60"
                  AbsoluteLayout.LayoutFlags="PositionProportional"/>
 
-
-            <Image 
+                </AbsoluteLayout>
+                <Image 
                 Aspect="AspectFit"
                 HeightRequest="185"
                 Margin="0,60,0,0"
@@ -48,7 +45,7 @@
             </StackLayout>
         </VerticalStackLayout>
         
-
+        
     </ScrollView>
 
 </ContentPage>

@@ -3,10 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PrjLogin.CadastroPage"
              Title="CadastroPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+    <VerticalStackLayout Padding="20" Spacing="15">
+        <Entry x:Name="nomeEntry" Placeholder="Nome do Produto"/>
+        <Entry x:Name="modeloEntry" Placeholder="Modelo"/>
+        <Entry x:Name="precoEntry" Placeholder="Preço" Keyboard="Numeric"/>
+
+        <Button Text="Adicionar Produto" Clicked="AdicionarProduto"/>
     </VerticalStackLayout>
 </ContentPage>
