@@ -11,17 +11,9 @@
 
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
-        {
-            count++;
+        public string ImageSource { get; private set; }
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
-        }
+       
 
         private void ToggleTheme_ToolbarItem_Clicked(object sender, EventArgs e)
         {
@@ -31,6 +23,16 @@
                 AppTheme.Light => AppTheme.Dark,
                 AppTheme.Unspecified => AppTheme.Dark
             };
+           
+        }
+        private async void GoToCadastroPage(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new CadastroPage());
+        }
+
+        private async void GoToListaPage(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ListaPage());
         }
     }
 }

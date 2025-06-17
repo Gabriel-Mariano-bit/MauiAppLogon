@@ -20,17 +20,14 @@
                                                   Dark=#CCC}"
     Shell.TitleColor="{AppThemeBinding Light={StaticResource Tertiary},
                                        Dark=White}">
-    <TabBar>
+   
         <ShellContent
-            Title="Home"
-            ContentTemplate="{DataTemplate local:MainPage}"
-            Icon="dotnet_bot.png"
-            Route="MainPage" />
-        <ShellContent
-            Title="Profile"
+            Title="Login"
             ContentTemplate="{DataTemplate local:LoginPage}"
-            Icon="dotnet_bot.png"
+            Icon="tre.png"
             Route="ProfilePage" />
-    </TabBar>
+
+   
+
 
 </Shell>    
