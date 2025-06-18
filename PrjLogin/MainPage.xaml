@@ -22,31 +22,52 @@
                  AbsoluteLayout.LayoutFlags="PositionProportional"/>
 
                 </AbsoluteLayout>
+
+
+
+
+
+            <Frame HasShadow="True"
+               BackgroundColor="Transparent"
+               CornerRadius="15"
+               Padding="10"
+               HorizontalOptions="Center">
                 <Image 
                 Aspect="AspectFit"
-                HeightRequest="185"
-                Margin="0,60,0,0"
+                HeightRequest="180"
                 SemanticProperties.Description="Bruto e Belo logo"
                 Source="tree.png" />
+            </Frame>
 
+            <!-- Título elegante -->
+            <Label Text="Bem-vindo!"
+               FontSize="26"
+               HorizontalOptions="Center"
+               TextColor="{AppThemeBinding Light=Black, Dark=White}"
+               FontAttributes="Bold"/>
 
-            
-
-            <StackLayout Padding="20" Spacing="15">
+            <!-- Botões personalizados -->
+            <StackLayout Spacing="15">
                 <Button Text="Ir para Cadastro"
-            Clicked="GoToCadastroPage"
-            BackgroundColor="DodgerBlue"
-            TextColor="White"/>
+                    Clicked="GoToCadastroPage"
+                    BackgroundColor="#2196F3"
+                    TextColor="White"
+                    CornerRadius="10"
+                    FontAttributes="Bold"/>
 
                 <Button Text="Ir para Lista"
-            Clicked="GoToListaPage"
-            BackgroundColor="ForestGreen"
-            TextColor="White"/>
+                    Clicked="GoToListaPage"
+                    BackgroundColor="#4CAF50"
+                    TextColor="White"
+                    CornerRadius="10"
+                    FontAttributes="Bold"/>
 
                 <Button Text="LogOut"
-            Clicked="GoToLoginPage"
-            BackgroundColor="IndianRed"
-            TextColor="White"/>     
+                    Clicked="GoToLoginPage"
+                    BackgroundColor="#F44336"
+                    TextColor="White"
+                    CornerRadius="10"
+                    FontAttributes="Bold"/>
             </StackLayout>
         </VerticalStackLayout>
         
